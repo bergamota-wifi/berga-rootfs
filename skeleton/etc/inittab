@@ -1,0 +1,10 @@
+# Startup the system
+::sysinit:/bin/mount -a
+::sysinit:/bin/hostname -F /etc/hostname
+::sysinit:/usr/bin/berga-cli sysinit
+
+# Stuff to do before rebooting
+::shutdown:/bin/umount -a -r
+
+# Serial line console
+::respawn:/sbin/getty -L ttyS0 38400 vt100
